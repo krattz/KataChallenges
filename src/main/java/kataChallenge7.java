@@ -1,32 +1,22 @@
+import java.util.Arrays;
+
 public class kataChallenge7 {
-    public static void frame(int n, int m, String [] word )
-    {
-        String star = "";
-        int i, j = 0;
-        for (i = 1; i <= 2; i++) {
-
-            for (j = 1; j <= m-1; j++) {
-
-                if (i == 1 || j == 0) {
-                    star += "*";
-                }
-            }
-            System.out.println(star);
-
-            if (i == 1 || j == 1) {
-                for (int k = 0; k < word.length; k++) {
-                    for (int f = 0; f < word.length; f++) {
-                        if ((word[f].length() + 2) != (m-2)) {
-                            word[f] += " ";
-                        }
-                    }
-                    System.out.println("* " + word[k] + "*");
-                }
-            }
-        }
-    }
     public static void main(String[] args) {
-        String [] word = {"Write","good","code","every","day"};
-        frame(8, 10  , word);
+        int[] arr1 = {11,22,33};
+        int[] arr2 = {1,2,3};
+        int[] arr3 = new int[arr1.length + arr2.length];
+        int k = 0;
+        for (int i = 0; i < arr3.length; i++) {
+            if (i % 2 != 0) {
+                try {
+                    arr3[i] = arr2[k];
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                k++;
+            } else arr3[i] = arr1[k];
+        }
+        System.out.println(Arrays.toString(arr3));
+
     }
 }
